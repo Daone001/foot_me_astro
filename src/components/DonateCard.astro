@@ -1,0 +1,78 @@
+---
+import DonateDetails from "./DonateDetails.astro";
+const donateData = [{
+  tab:"Dollar Account", tabIcon:"attach_money", account:"0536382273",routing:"021000089", info:"For dollar contributions, please use this account details"
+},
+{
+  tab:"Pounds Account", tabIcon:"currency_pound", account:"0536381623", routing:"021000089", info:"For pounds contributions, please use this account details"
+},
+{
+  tab:"Euro Account", tabIcon:"euro_symbol", account:"0536382280", routing:"021000089", info:"For euro contributions, please use this account details"
+}];
+---
+
+<h1>Give</h1>
+<section class="section-donate">
+  <p>Donations are currently being accepted via multiple format as listed below depending on your location and currency.</p>
+<p>Wire Transfer (Using the account and routing number provided below).</p>
+<p>Direct Deposit (Nigeria only).</p>
+<p>Swift code (All African countries).</p>
+<h4>Wire Transfer Options</h4>
+{donateData.map(InfoData => (
+  <DonateDetails
+  tab={InfoData.tab}
+  tabIcon={InfoData.tabIcon}
+  account={InfoData.account}
+  routing={InfoData.routing}
+  info={InfoData.info}
+/>
+))}
+
+<h4>Swift Code</h4>
+<DonateDetails 
+tab="Swift Code Transfers"
+tabIcon="fiber_pin"
+account="4232001142"
+routing="ECOCNGLA"
+routingName="Swift Code"
+info="Account created with Eco Transnational Bank PLC."
+/>
+<h4>Direct Deposit</h4>
+<DonateDetails 
+tab="Naira Deposit And Transfers"
+tabIcon="add_business"
+account="3011013632"
+routing="Not Applicable"
+info="First Bank Nigeria plc account for mobile transfers and direct deposits."
+/>
+</section>
+
+<style>
+  h1 {
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    border: none;
+    background-color: #fafafa;
+    padding: 25px 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.13);
+  }
+  section {
+    background-color: #eeeeee;
+    padding: 20px;
+  }
+  h4, p {
+    text-align: center;
+  }
+  h4 {
+    font-size: 30px;
+  }
+  @media screen and (max-width: 636px) {
+    h1 {
+      font-size: 45px;
+    }
+  }
+  
+</style>

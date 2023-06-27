@@ -1,0 +1,52 @@
+---
+export interface Props {
+	title?: string;
+	body?: string;
+	href?: string;
+	icon?: string;
+	btn?: string;
+}
+
+const { href, title, body, icon, btn } = Astro.props;
+---
+
+<div class="card-btn">
+		<div class="icon"><span class="material-icons">{icon}</span></div>
+		<h2>
+			{title}
+		</h2>
+		<p>
+			{body}
+		</p>
+		<a class="btn" href={href}>{btn}</a>
+</div>
+
+<style>
+	h2 {
+		color: #645CBB;
+	}
+	p{
+		line-height: 2.1rem;
+	}
+	@media screen and (max-width: 636px) {
+   h2 {
+		text-align: center;
+	 }
+	 .card-btn {
+		width: 100%;
+	 }
+}
+</style>
+
+<script>
+
+	const myCardBtn = document.querySelector('.card-btn');
+	const cardTime = new Date().getHours();
+	if (cardTime > 0 || cardTime <= 18) {
+		myCardBtn.classList.add('light');
+	} else {
+		myCardBtn.classList.remove('light');
+		myCardBtn.style.color="#fff";
+	}
+</script>
+

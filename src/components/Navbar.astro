@@ -1,0 +1,162 @@
+---
+import '../styles/global.css'
+import Navimage from '/images/Footme Logo webiste.png'
+import Hamburger from '../components/Hamburger.astro'
+import Menu from '../components/Menu.astro'
+
+export interface Props{
+  showMobileNav?: boolean;
+}
+
+const {showMobileNav=false} = Astro.props
+---
+     
+
+<nav class="active" id="nav">
+    <a href="/" class="navicon">
+      <img src={Navimage} alt="Foot Me logo">
+    </a>
+    <div class="bigNav">
+      <Menu 
+      navitem="Home"
+		navitem_2="About"
+		navitem_3="Event"
+		navitem_4="Contact"
+      />
+    </div>
+      
+      <button class="menu">
+        <Hamburger menuclass="hamburger" />
+      </button>
+      
+    </nav>
+    <!-- <SideNav /> -->
+    <div class="sidenav">
+      <div class="navicon">
+        <img src={Navimage} alt="Foot me Logo">
+      </div>
+      <Menu 
+      navitem="Home"
+    navitem_2="About"
+    navitem_3="Event"
+    navitem_4="Contact"
+      />
+    </div>
+    
+      <button class="close active">
+        <span class="line bar_1"></span>
+        <span class="line bar_2"></span>
+      </button>
+
+<style> 
+nav {
+  background-color: #0081B4;
+  position: fixed;
+  top: 0;
+  left: 0;
+  padding: 20px;
+  width: 100%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: center;
+  border-radius: 3px;
+  box-shadow: 0 2px 5px rgba(0, 0, 0, 0.3);
+  transition: width 0.6s linear;
+  z-index: 1;
+}
+
+nav .navicon img {
+  height: 60px;
+  width: auto;
+  margin-right: 100px;
+}
+
+nav ul {
+  width: 100%;
+}
+
+button.menu {
+  display: none;
+}
+
+.sidenav {
+          display: none;
+        }
+
+@media screen and (max-width: 636px) {
+  nav {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  }
+
+  nav .bigNav {
+  display: none;
+
+}
+
+button.menu {
+  display: block;
+}
+
+.sidenav.active {
+            display: inline-block;
+            position: fixed;
+            top: 0;
+            left: 0;
+            width: 100%;
+            height: 60vh;
+            background-color: #fff;
+            box-shadow: 0 2px rgba(0, 0, 0, 0.3);
+            z-index: 1;
+          }
+
+          .navicon img {
+            display: inline-block;
+            height: 60px;
+            width: auto;
+            margin-right: 100px;
+            background-color: #0081B4;
+            border-radius: 4px;
+            box-shadow: 0 1 1 rgba(0, 0, 0, 0.3);
+          }
+
+          .navicon img:hover {
+            background-color: #03C988;
+            transition: all 0.4s ease-in;
+          }
+          button.close {
+            background-color: transparent;
+            z-index: 10;
+            height: 40px;
+            width: 40px;
+            border: none;
+            border-radius: 4px;
+            padding: 0 20px;
+            margin: auto;
+            cursor: pointer;
+          }
+          
+          .close.active {
+            display: block;
+            position: fixed;
+            top: 20px;
+            right: 35px 
+          }
+
+}
+
+</style>
+
+<script>
+  const menuBtn = document.querySelector('.menu');
+  const sideNav = document.querySelector('.sidenav');
+  const closeBtn =document.querySelector('button.close');
+  menuBtn.addEventListener('click', () =>{
+    sideNav.classList.add('active');
+  });
+  closeBtn.addEventListener('click', () => {
+          sideNav.classList.remove('active');
+        });
+</script>

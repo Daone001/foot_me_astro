@@ -1,0 +1,54 @@
+---
+import '../styles/global.css';
+import Layout from '../layouts/Layout.astro';
+import Card from '../components/Card.astro';
+import Showcase from '../components/Showcase.astro';
+import CardBtn from '../components/CardBtn.astro';
+import SmCard from '../components/SmCard.astro';
+
+const dataCards = [{
+  title:"WHY DONATE SHOE", body:"Over 2.1 million people are infected with foot borne diseases, that can be prevented with simple foot wear. Records show that the most viable item for children in Nigeria today is footwear, enabling comfortable transition.", icon:"favorite_border"
+},
+{
+  title:"THE GRAND PLAN",
+        body:"Seeking the utmost support of donors and sponsors, in terms on product discount, product sourcing, and financial support to help promote this project. Where we are able to reach schools, local communities in urban and rural areas.",
+        icon:"radar"
+},
+{
+  title:"OUR TARGET",
+        body:"We intend to reach as many children as possible in Nigeria and across Africa, the initial goal is 2,000,000 children. Expanding from Nigeria to the neighboring countries such as Benin Republic, Togo, Ghana, Cote d'Ivoire, ...",
+        icon:"my_location"
+}];
+---
+
+<Layout title="Foot Me">
+  <Showcase />
+  <main class="container">
+    <Card
+      title="THE POTENTIAL"
+      body="By donating $5 for a child, it helps in putting a smile on their face as they are able to walk around various places and avenues without worrying about footborne diseases. Your contribution will go a long way in securing the future and leaders of tomorrow, and we are proud to say what you give is focused on providing footwears to children as the name suggests 'FootMe.'"
+    />
+
+    <div class="row">
+      {dataCards.map(dataCard => (
+        <SmCard
+        title={dataCard.title}
+        body={dataCard.body}
+        icon={dataCard.icon}
+      />
+      ))}
+      
+    </div>
+    <div class="container">
+      <CardBtn title="VOLUNTEER WITH US" btn="LEARN MORE" />
+    </div>
+  </main>
+</Layout>
+
+<style>
+  h1 {
+    font-size: 3rem;
+    font-weight: 800;
+    margin: 0;
+  }
+</style>

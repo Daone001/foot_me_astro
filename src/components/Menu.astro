@@ -1,0 +1,73 @@
+---
+
+export interface Props {
+	navitem?: string;
+  navitem_2?: string;
+  navitem_3?: string;
+  navitem_4?: string;
+  navclass?: string;
+}
+
+const { navitem, navitem_2, navitem_3, navitem_4, navclass } = Astro.props;
+---
+
+<ul class={navclass}>
+  <li><a href="/">{navitem}</a></li>
+  <li><a href="/about">{navitem_2}</a></li>
+  <li><a href="/events">{navitem_3}</a></li>
+  <li><a href="/contact">{navitem_4}</a></li>
+</ul>
+
+
+<style>
+   ul {
+  display: flex;
+  list-style-type: none;
+  padding: 0;
+  margin: 0;
+  width: auto;
+  transition: width 0.6s linear;
+}
+   ul a {
+  /* position: relative; */
+  color: #fff;
+  text-decoration: none;
+  margin: 0 10px;
+}
+@media screen and (max-width: 636px) {
+
+  ul {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  list-style-type: none;
+  padding: 0;
+  margin-top: 100px;
+  width: auto;
+  transition: width 0.6s linear;
+}
+ul li {
+  padding: 15px 0;
+  border-bottom: 1px solid #eee;
+  width: 100%;
+  text-align: center;
+}
+
+ul li:hover {
+  background-color: #eee;
+  transition: all 0.25s ease-in;
+}
+
+ul li:first-child {
+  border-top: 1px solid #eee;
+  padding-top: 15px;
+}
+
+ul li a {
+  font-size: 1.2rem;
+  font-weight: bold;
+  color: #000;
+}
+}
+</style>

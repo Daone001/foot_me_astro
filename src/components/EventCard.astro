@@ -1,0 +1,102 @@
+---
+export interface Props {
+  title?: string;
+  content?: string;
+  image?: string;
+  eventSize?: boolean;
+}
+
+const {
+  title="Event-Title", 
+  content="Lorem ipsum dolor sit amet consectetur adipisicing elit. Sequi nulla commodi sed laudantium ipsa, quod error laboriosam maiores atque consequuntur vero, a amet reprehenderit. Exercitationem iusto ab quisquam ducimus minus!",
+  image="https://images.unsplash.com/photo-1508997449629-303059a039c0?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80",
+  eventSize="true"
+  } = Astro.props
+  
+---
+<h1>Events</h1>
+<section class="section-event container">
+  <div class="event-card">
+    <div class="event-img">
+      <img src={image} alt="footme event">
+    </div>
+    <div class="event-text">
+      <h2>{title}</h2>
+      <p>
+        {content}
+      </p>
+    </div>
+  </div>
+</section>
+
+<style>
+  h1 {
+    margin-top: 100px;
+    width: 100%;
+    text-align: center;
+    font-size: 65px;
+    border: none;
+    background-color: #fafafa;
+    padding: 25px 0;
+    border-radius: 5px;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.13);
+  }
+  section {
+    background-color: #eeeeee;
+    width: 80% !important;
+    padding: 50px 25px;
+    border-radius: 8px;
+    margin: 50px auto;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.12);
+  }
+  .event-card {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    width: 80%;
+  }
+
+  .event-img img {
+    width: 650px;
+    height: auto;
+    object-fit: contain;
+  }
+  .event-text {
+    width: 100%;
+  }
+  .event-text h2 {
+    margin-left: 15px;
+    font-size: 2.4rem;
+  }
+
+  .event-text p {
+    font-size: 1.3rem;
+    line-height: 3rem;
+  }
+  @media screen and (max-width: 636px) {
+    section {
+    width: 100% !important;
+    margin: 50px auto 100px;
+  }
+    .event-card {
+    width: 100%;
+  }
+    .event-img img {
+    width: 100%;
+    height: auto;
+    object-fit: cover;
+  }
+  h1 {
+    font-size: 45px;
+  }
+  .event-text h2 {
+    font-size: 1.8rem;
+  }
+
+  .event-text p {
+    font-size: 1.1rem;
+    line-height: 2.8rem;
+  }
+}
+</style>

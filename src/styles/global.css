@@ -1,0 +1,168 @@
+@import url('https://fonts.googleapis.com/css2?family=Lato&display=swap');
+* {
+  box-sizing: border-box;
+}
+
+body {
+  font-family: 'Lato', sans-serif;
+  display: flex;
+  flex-direction: column;
+  /* align-items: center; */
+  /* height: 100vh; */
+  justify-content: center;
+  margin: 0;
+}
+
+h1-h6 {
+  font-family: inherit;
+  font-weight: bold;
+}
+
+h2{
+  font-size: 35px;
+}
+
+p {
+  font-size: 1.2rem;
+  line-height: 35px;
+  margin: 0 14px;
+}
+
+.container {
+  display: flex;
+  flex-direction: column;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.row {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  flex-wrap: wrap;
+  width: 100%;
+  overflow-x: hidden;
+}
+
+.btn {
+  background-color: #645CBB;
+  color: #fff;
+  padding: 15px 40px;
+  margin-bottom: 40px;
+  font: inherit;
+  font-size: 1rem;
+  border-radius: 4px;
+  border: none;
+  cursor: pointer;
+  box-shadow: 1px 1px rgba(0, 0, 0, 0.18);
+}
+
+.btn:hover{
+  background-color: #0081B4;
+  transition: all 0.25s ease-in;
+}
+
+a {
+  text-decoration: none;
+}
+.menu {
+  background: none;
+  border: none;
+}
+
+.close {
+  display: none;
+}
+
+.hamburger {
+  display: block;
+  cursor: pointer;
+}
+
+.hamburger.inactive {
+  display: none;
+  
+}
+
+/* .close.active {
+  display: block;
+  cursor: pointer;
+  background-color: #eee;
+  border-radius: 4px;
+  box-shadow: 0 1 2 rgba(0, 0, 0, 0.25);
+} */
+
+.hamburger .line {
+  display: block;
+  width: 20px;
+  height: 3px;
+  margin: 5px 0;
+  background-color: #fff;
+}
+
+.close .line {
+  position: absolute;
+  top: 50%;
+  left: 0;
+  display: block;
+  width: 30px;
+  height: 3px;
+  margin-bottom: 10px;
+  background-color: #0081B4;
+  z-index: 5;
+}
+
+.close .bar_1 {
+  transform: rotate(45deg);
+}
+
+.close .bar_2 {
+  transform: rotate(135deg);
+}
+
+.card,
+.card-btn {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  margin: 35px 0;
+  padding: 45px 12px;
+  background-color: #20262E;
+  color: #fff;
+  border: none;
+  border-radius: 8px;
+  box-shadow: 3px 2px rgba(0, 0, 0, 0.18);
+  width: 80%;
+}
+
+.card.light,
+.card-btn.light {
+  background-color: #fafafa;
+  color: #20262E;
+}
+
+.info {
+  display: flex;
+  flex-direction: row;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+  padding: 25px;
+}
+
+@media screen and (min-width: 636px) {
+  .hamburger.active {
+    display: none;
+  }
+
+}
+
+@media screen and (max-width: 636px) {
+  .card {
+  width: 100%;
+}
+}

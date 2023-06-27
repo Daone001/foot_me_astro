@@ -1,0 +1,22 @@
+---
+import "../styles/global.css";
+import Layout from "../layouts/Layout.astro"
+import Showcase from "../components/Showcase.astro";
+import Card from "../components/Card.astro";
+
+---
+
+<Layout title="About: Foot Me">
+  <Showcase 
+    title="About Us"
+    content="Educating the leaders of tomorrow."
+    image="https://images.unsplash.com/photo-1593113598332-cd288d649433?ixlib=rb-4.0.3&ixid=MnwxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8&auto=format&fit=crop&w=1170&q=80"
+  />
+  <div class="container">
+    <Card 
+    title="Our History"
+    body="The inspiration for this project emanated from an emotional connection, a passionate encounter with two kids who were working barefoot running errands for their less privileged mother. Hanna and Favor are two children deprived of all social welfare, basic benefits, and provisions expected of any society.Nigeria is a country with the potential and resources to accommodate the other Africa countries and gross domestic product (GDP) to prove it even though the country isn’t utilizing its resources. This fortunate event ignited a passion within me to satisfy what I considered an immediate need of these children (Hanna and favor), and bought them a pair of footwear. This was during the COVID-19 pandemic and a lockdown was a new development for everyone in the country. However, these girls and their mother were left to fend for themselves leaving them devastated with no hope of survival.I saw a younger version of me through the eyes of these young girls which made me remember a promise I once made to myself, a promise to help the less privileged if given the opportunity. I believe if such an opportunity presented itself with my family things might have turned out better. My current financial situation wasn’t enough to dampen my passion to put a smile back on these children’s faces and making small strides to eradicating poverty and giving hope to those who need it by providing footwears to the younger generation."
+  />
+  </div>
+  
+</Layout>

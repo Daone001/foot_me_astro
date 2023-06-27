@@ -1,0 +1,18 @@
+---
+export interface Props {
+  menuclass?: string;
+}
+const {menuclass} = Astro.props
+---
+<div class={menuclass}>
+  <span class="line"></span>
+  <span class="line"></span>
+  <span class="line"></span>
+</div>
+
+<script>
+  const mobileNav = document.querySelector('.hamburger');
+  mobileNav.addEventListener('click' , ()=> {
+    // mobileNav.classList.toggle('inactive');
+  })
+</script>

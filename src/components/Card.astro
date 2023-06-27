@@ -1,0 +1,44 @@
+---
+export interface Props {
+	title?: string;
+	body?: string;
+	icon?: string;
+}
+
+const { title, body, icon } = Astro.props;
+---
+
+<div class="card">
+	<!-- <a href={href}> -->
+		<div class="icon"><span class="material-icons">{icon}</span></div>
+		<h2>
+			{title}
+		</h2>
+		<p>
+			{body}
+		</p>
+</div>
+
+<style>
+	p{
+		line-height: 3rem;
+	}
+	@media screen and (max-width: 636px) {
+   h2 {
+		text-align: center;
+	 }
+	 .card {
+		margin-bottom: 100px;
+	 }
+}
+</style>
+
+<script>
+	const myCard = document.querySelector('.card');
+	const cardTime = new Date().getHours();
+	if (cardTime > 0 || cardTime <= 18) {
+		myCard.classList.add('light');
+	} else {
+		myCard.classList.remove('light');
+	}
+</script>

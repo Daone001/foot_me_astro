@@ -1,0 +1,46 @@
+---
+export interface Props {
+	title?: string;
+	body?: string;
+	icon?: string;
+}
+
+const { title, body, icon } = Astro.props;
+---
+
+<div class="sm_card">
+	<!-- <a href={href}> -->
+		<div class="icon"><span class="material-icons">{icon}</span></div>
+		<h3>
+			{title}
+		</h3>
+		<p>
+			{body}
+		</p>
+</div>
+<style>
+  .icon span{
+    font-size: 60px;
+    color: #fff;
+  }
+	.sm_card {
+    background-color: #645CBB !important;
+    color: #fff;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: center;
+		margin: 35px 15px;
+		padding: 15px 8px;
+		background-color: #eeeeee;
+		border: none;
+		border-radius: 8px;
+		box-shadow: 3px 2px rgba(0, 0, 0, 0.18);
+		width: 400px;
+	}
+  @media screen and (max-width: 636px) {
+    .sm_card {
+		width: 100%;
+	}
+}
+</style>

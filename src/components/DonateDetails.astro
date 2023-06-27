@@ -1,0 +1,119 @@
+---
+export interface Props {
+  tab?: string;
+  tabIcon?: string;
+  info?: string;
+  account?: string;
+  routing?: string;
+  routingName?: string;
+  donateTable?: boolean;
+}
+const {tab, tabIcon, info, account, routing, routingName = "Routing Number", donateTable} = Astro.props;
+---
+
+<section class="section-donate container">
+  <div class="donate-card">
+    <h3> <span class="material-icons">add_circle_outline</span> {tab} (<span class="material-icons">{tabIcon}</span>)</h3>
+    <table>
+      <tr>
+        <th>Account Number</th>
+        <th>{routingName}</th>
+        <th>Info</th>
+      </tr>
+      <tr>
+        <td>{account}</td>
+        <td>{routing}</td>
+        <td>{info}</td>
+      </tr>
+    </table>
+  </div>
+</section>
+
+
+<style>
+  section{
+    margin-bottom: 50px;
+
+  }
+
+  .section-donate.active {
+    background-color: #eeeeee;
+    width: 100% !important;
+    padding: 50px 25px;
+    border-radius: 8px;
+    margin: 50px auto;
+    box-shadow: 1px 1px rgba(0, 0, 0, 0.12);
+    transition: all 0.4s ease-in;
+  }
+  .donate-card {
+    width: 100%;
+
+  }
+  h3 {
+    background-color: #00425a;
+    color: #fff;
+    padding: 30px 15px 30px 30px;
+    border-radius: 4px;
+    font-size: 1.6rem;
+    cursor: pointer;
+    transition: all 0.3 ease-in;
+  }
+
+  h3:hover {
+    background-color: #0081B4;
+    scale: 1.01;
+    color: #fff;
+    transition: all 0.3 ease-in;
+  }
+  table{
+    display: none;
+  }
+  table.active{
+    display: block;
+    margin: 0;
+    text-align: center;
+    transition: all 0.3s ease-in;
+  }
+  tbody {
+    width: 100%;
+  }
+  
+  th {
+    font-size: 1.3rem;
+    padding: 15px 30px;
+  }
+
+  td {
+    font-size: 1.2rem;
+    padding: 15px 40px;
+  }
+  @media screen and (max-width: 636px) {
+    h3{
+      font-size: 1.2rem;
+    }
+    th {
+      font-size: 1rem;
+      padding: 10px;
+    }
+    td {
+    font-size: 0.9rem;
+    padding: 10px;
+  }
+}
+</style>
+
+<script>
+  const dropdowns = document.querySelectorAll('h3');
+  const secBackground = document.querySelectorAll('.section-donate');
+  const tableContent = document.querySelectorAll('table');
+  const btnIcon = document.querySelectorAll('h3 span');
+
+  dropdowns.forEach((dropdown, idx ) => {
+    dropdown.addEventListener('click', ()=> {
+    secBackground[idx].classList.toggle('active');
+    tableContent[idx].classList.toggle('active');
+    secBackground[idx].classList.contains('active') ? btnIcon.innerText = 'remove_circle_outline' : btnIcon.innerText = 'add_circle_outline';
+  })
+  });
+  
+</script>
